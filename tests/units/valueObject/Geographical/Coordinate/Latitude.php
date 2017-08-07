@@ -4,9 +4,9 @@ namespace tests\units\ndesaleux\valueObject\Geographical\Coordinate;
 
 use ndesaleux\valueObject\Geographical\Coordinate\InvalidCoordinate;
 
-class Coordinate extends \atoum
+class Latitude extends \atoum
 {
-    public function testCoordinateWithValidValue()
+    public function testLatitudeWithValidValue()
     {
         $this
             ->given($value = (float) rand(-90, 90))
@@ -15,7 +15,7 @@ class Coordinate extends \atoum
                 ->isEqualTo($value);
     }
 
-    public function testCoordinateThrowedExceptionWithNotNumericalValue()
+    public function testLatitudeThrowedExceptionWithNotNumericalValue()
     {
         $this
             ->given($value = uniqid('value'))
@@ -24,12 +24,12 @@ class Coordinate extends \atoum
                 ->isInstanceOf(InvalidCoordinate::class);
     }
 
-    public function testCoordinateThrowedExceptionWithOutOfRangeValue()
+    public function testLatitudeThrowedExceptionWithOutOfRangeValue()
     {
         $this
             ->given($value = rand(91, PHP_INT_MAX))
             ->exception(function () use ($value) { $this->newTestedInstance($value);})
-                ->hasMessage('Coordinate must be init with value beetwen -90 and 90, "' . $value . '" was not')
+                ->hasMessage('"' . $value . '" was out of range')
                 ->isInstanceOf(InvalidCoordinate::class);
     }
 }

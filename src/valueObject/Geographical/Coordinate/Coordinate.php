@@ -2,7 +2,7 @@
 
 namespace ndesaleux\valueObject\Geographical\Coordinate;
 
-class Coordinate
+abstract class Coordinate
 {
     private $value;
 
@@ -12,7 +12,7 @@ class Coordinate
             throw InvalidCoordinate::fromNotNumerical($value);
         }
 
-        if ($value > 90 || $value < -90) {
+        if ($value > static::MAX_VALUE || $value < -(static::MAX_VALUE)) {
             throw InvalidCoordinate::fromOutOfRange($value);
         }
 

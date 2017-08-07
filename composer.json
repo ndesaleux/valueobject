@@ -1,0 +1,11 @@
+{
+    "require-dev": {
+        "atoum/atoum": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "ndesaleux\\valueObject\\": "src/valueObject/"
+        }
+    }
+
+}

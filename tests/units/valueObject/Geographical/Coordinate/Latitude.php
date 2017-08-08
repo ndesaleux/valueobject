@@ -24,12 +24,21 @@ class Latitude extends \atoum
                 ->isInstanceOf(InvalidCoordinate::class);
     }
 
-    public function testLatitudeThrowedExceptionWithOutOfRangeValue()
+    public function testLatitudeThrowedExceptionWithOutOfRangeValueMax()
     {
         $this
             ->given($value = rand(91, PHP_INT_MAX))
             ->exception(function () use ($value) { $this->newTestedInstance($value);})
                 ->hasMessage('"' . $value . '" was out of range')
                 ->isInstanceOf(InvalidCoordinate::class);
+    }
+
+    public function testLongitudeThrowedExceptionWithOutOfRangeValueMin()
+    {
+        $this
+            ->given($value = rand(PHP_INT_MIN, -91))
+            ->exception(function () use ($value) { $this->newTestedInstance($value);})
+            ->hasMessage('"' . $value . '" was out of range')
+            ->isInstanceOf(InvalidCoordinate::class);
     }
 }

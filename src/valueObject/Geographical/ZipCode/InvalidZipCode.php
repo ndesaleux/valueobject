@@ -5,10 +5,14 @@ namespace ndesaleux\valueObject\Geographical\ZipCode;
 
 class InvalidZipCode extends \Exception
 {
+    const WRONG_TYPE = '"%s" has type "%s", "%s" required';
+
+    const WRONG_FORMAT = '"%s" has wrong format';
+
     public static function fromWrongType($value, $currentType, $neededType, $code = 0, \Throwable $previous = null)
     {
         return new self(
-            sprintf('"%s" has type "%s", "%s" required', $value, $currentType, $neededType),
+            sprintf(self::WRONG_TYPE, $value, $currentType, $neededType),
             $code,
             $previous
         );
@@ -17,7 +21,7 @@ class InvalidZipCode extends \Exception
     public static function fromInvalidFormat($value, $code = 0, \Throwable $previous = null)
     {
         return new self(
-            sprintf('"%s" has wrong format', $value),
+            sprintf(self::WRONG_FORMAT, $value),
             $code,
             $previous
         );

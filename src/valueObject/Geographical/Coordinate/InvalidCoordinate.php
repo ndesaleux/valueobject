@@ -2,7 +2,9 @@
 
 namespace ndesaleux\valueObject\Geographical\Coordinate;
 
-class InvalidCoordinate extends \Exception
+use ndesaleux\valueObject\Exception;
+
+class InvalidCoordinate extends Exception
 {
     const NUMERICAL_VALUE_NEEDED = 'Coordinate must be init with numerical value, "%s" was not';
 

@@ -2,10 +2,10 @@
 
 namespace ndesaleux\valueObject\Email;
 
-class Email
-{
+use ndesaleux\valueObject\valueObject;
 
-    private $value;
+class Email extends valueObject
+{
 
     private $domain;
 
@@ -20,9 +20,9 @@ class Email
         $this->canonical = preg_replace('/\+(.+)@/', '@', $value);
     }
 
-    public function getValue()
+    protected function validate($value)
     {
-        return $this->value;
+
     }
 
     public function getDomain()

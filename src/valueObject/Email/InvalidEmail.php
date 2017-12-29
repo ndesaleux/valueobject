@@ -2,7 +2,9 @@
 
 namespace ndesaleux\valueObject\Email;
 
-class InvalidEmail extends \Exception
+use ndesaleux\valueObject\Exception;
+
+class InvalidEmail extends Exception
 {
     const INVALID_VALUE = 'email "%s" is invalid';
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace tests\units\ndesaleux\valueObject\Geographical\ZipCode;
+namespace tests\units\ndesaleux\valueObject\French;
 
-class French extends \atoum
+class ZipCode extends \atoum
 {
     public function testExtendsZipCode()
     {
         $this
-            ->class(\ndesaleux\valueObject\Geographical\ZipCode\French::class)
+            ->class(\ndesaleux\valueObject\French\ZipCode::class)
                 ->isSubclassOf(\ndesaleux\valueObject\Geographical\ZipCode\ZipCode::class);
     }
 
@@ -16,7 +16,7 @@ class French extends \atoum
         $this
             ->given($zipCode = rand(1000, 99999))
             ->and($this->newTestedInstance($zipCode))
-                ->string($this->testedInstance->getValue())
+                ->string($this->testedInstance->value())
                     ->isEqualTo((string) $zipCode);
     }
 

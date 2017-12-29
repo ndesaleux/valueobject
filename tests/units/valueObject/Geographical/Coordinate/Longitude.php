@@ -11,7 +11,7 @@ class Longitude extends \atoum
         $this
             ->given($value = (float) rand(-180, 180))
             ->and($this->newTestedInstance($value))
-            ->float($this->testedInstance->getValue())
+            ->float($this->testedInstance->value())
                 ->isEqualTo($value);
     }
 

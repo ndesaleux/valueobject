@@ -2,7 +2,9 @@
 
 namespace ndesaleux\valueObject\IP;
 
-class InvalidIP extends \Exception
+use ndesaleux\valueObject\Exception;
+
+class InvalidIP extends Exception
 {
 
     const INVALID_VALUE = '"%s" is not a valid IP';

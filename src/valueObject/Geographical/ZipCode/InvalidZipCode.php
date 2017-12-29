@@ -2,8 +2,9 @@
 
 namespace ndesaleux\valueObject\Geographical\ZipCode;
 
+use ndesaleux\valueObject\Exception;
 
-class InvalidZipCode extends \Exception
+class InvalidZipCode extends Exception
 {
     const WRONG_TYPE = '"%s" has type "%s", "%s" required';
 

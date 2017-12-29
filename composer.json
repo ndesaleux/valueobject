@@ -1,11 +1,11 @@
 {
     "require-dev": {
-        "atoum/atoum": "^3.1"
+        "atoum/atoum": "^3.1",
+        "phpmetrics/phpmetrics": "^2.3"
     },
     "autoload": {
         "psr-4": {
             "ndesaleux\\valueObject\\": "src/valueObject/"
         }
     }
-
 }

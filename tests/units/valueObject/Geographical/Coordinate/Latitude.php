@@ -11,7 +11,7 @@ class Latitude extends \atoum
         $this
             ->given($value = (float) rand(-90, 90))
             ->and($this->newTestedInstance($value))
-            ->float($this->testedInstance->getValue())
+            ->float($this->testedInstance->value())
                 ->isEqualTo($value);
     }
 

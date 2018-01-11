@@ -2,14 +2,14 @@
 
 namespace ndesaleux\valueObject\French\SecuriteSociale;
 
-use ndesaleux\valueObject\valueObject;
+use ndesaleux\valueObject\ValueObject;
 
-class Number extends valueObject
+class Number extends ValueObject
 {
 
     private $infos;
 
-    const PATTERN = '#(?P<sex>[1-478])(?P<year>\d{2})(?P<month>\d{2})((?P<departement1>9[78][0-9])(?P<city1>\d{2})|(?P<departement>(\d{2}|2[ab]))(?P<city>\d{3}))(?P<order>\d{3})(?P<nir>\d{2})#i';
+    const PATTERN = '#(?P<sex>[1-478])(?P<year>\d{2})(?P<month>\d{2})((?P<departement1>9[78][0-9])(?P<city1>\d{2})|(?P<departement>(\d{2}|2[ab]))(?P<city>\d{3}))(?P<order>\d{3})(?P<nir>\d{2})#i'; // @codingStandardsIgnoreLine
 
     public function __construct($value)
     {
@@ -23,10 +23,18 @@ class Number extends valueObject
             throw InvalidNumber::fromNotMatchingPattern($value);
         }
 
-        $calcul = str_replace(['2a', '2b'], [19,18], substr(strtolower($value),0, -2));
+        $calcul = str_replace(
+            ['2a', '2b'],
+            [19, 18],
+            substr(
+                strtolower($value),
+                0,
+                -2
+            )
+        );
         $this->infos = $matches;
 
-        if ( (97 - ($calcul%97)) !== $this->getNIR()) {
+        if ((97 - ($calcul%97)) !== $this->getNIR()) {
             throw InvalidNumber::fromWrongNIR($this->getNIR(), $calcul);
         }
         return true;
@@ -54,7 +62,7 @@ class Number extends valueObject
 
     public function getDepartement()
     {
-        if ($this->infos['departement'] === '' ) {
+        if ($this->infos['departement'] === '') {
             return $this->infos['departement1'];
         }
         return $this->infos['departement'];
@@ -62,7 +70,7 @@ class Number extends valueObject
 
     public function getCityNumber()
     {
-        if ($this->infos['city'] === '' ) {
+        if ($this->infos['city'] === '') {
             return $this->infos['city1'];
         }
         return $this->infos['city'];

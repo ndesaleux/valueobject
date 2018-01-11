@@ -1,7 +1,11 @@
 {
     "require-dev": {
         "atoum/atoum": "^3.1",
-        "phpmetrics/phpmetrics": "^2.3"
+        "phpmetrics/phpmetrics": "^2.3",
+        "sebastian/phpcpd": "^2.0",
+        "atoum/stubs": "^2.5",
+        "atoum/reports-extension": "^2.3",
+        "vimeo/psalm": "0.3.37"
     },
     "autoload": {
         "psr-4": {

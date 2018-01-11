@@ -2,7 +2,6 @@
 
 namespace ndesaleux\valueObject\IP;
 
-
 class IPv4
 {
     private $value;
@@ -14,7 +13,8 @@ class IPv4
         ['min' => '192.168.0.0', 'max' => '192.168.255.255']
     ];
 
-    public function __construct($value) {
+    public function __construct($value)
+    {
         $this->intValue = ip2long($value);
         if (!$this->intValue) {
             throw InvalidIP::fromInvalidValue($value);
@@ -30,7 +30,7 @@ class IPv4
     public function isPrivate()
     {
         foreach ($this->privateRules as $rule) {
-            if ($this->intValue >= ip2long($rule['min']) && $this->intValue <= ip2long($rule['max']) ){
+            if ($this->intValue >= ip2long($rule['min']) && $this->intValue <= ip2long($rule['max'])) {
                 return true;
             }
         }

@@ -2,9 +2,9 @@
 
 namespace ndesaleux\valueObject\Luhn;
 
-use ndesaleux\valueObject\valueObject;
+use ndesaleux\valueObject\ValueObject;
 
-class Luhn extends valueObject
+class Luhn extends ValueObject
 {
 
     /**
@@ -39,9 +39,9 @@ class Luhn extends valueObject
         $checksum = 0;
 
         // Luhn's algorithm
-        for ($i = 0;$i < $length;$i++) {
+        for ($i = 0; $i < $length; $i++) {
             $int = (int) $value[$length - 1 - $i];
-            if ($i%2 === 0){
+            if ($i%2 === 0) {
                 $int *= 2;
                 if ($int > 9) {
                     $int -= 9;

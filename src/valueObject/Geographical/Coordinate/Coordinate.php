@@ -2,9 +2,9 @@
 
 namespace ndesaleux\valueObject\Geographical\Coordinate;
 
-use ndesaleux\valueObject\valueObject;
+use ndesaleux\valueObject\ValueObject;
 
-abstract class Coordinate extends valueObject
+abstract class Coordinate extends ValueObject
 {
     public function __construct($value)
     {

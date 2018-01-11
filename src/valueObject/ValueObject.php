@@ -2,7 +2,7 @@
 
 namespace ndesaleux\valueObject;
 
-abstract class valueObject
+abstract class ValueObject
 {
     protected $value;
 
@@ -13,7 +13,7 @@ abstract class valueObject
      *
      * @throw Exception
      */
-    protected abstract function validate($value);
+    abstract protected function validate($value);
 
     public function value()
     {

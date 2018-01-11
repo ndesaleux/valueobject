@@ -2,10 +2,9 @@
 
 namespace ndesaleux\valueObject\Geographical\ZipCode;
 
+use ndesaleux\valueObject\ValueObject;
 
-use ndesaleux\valueObject\valueObject;
-
-abstract class ZipCode extends valueObject
+abstract class ZipCode extends ValueObject
 {
     protected $value;
 
@@ -14,5 +13,4 @@ abstract class ZipCode extends valueObject
         $this->validate($value);
         $this->value = $value;
     }
-
 }

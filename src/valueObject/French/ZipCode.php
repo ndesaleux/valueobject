@@ -6,7 +6,8 @@ use ndesaleux\valueObject\Geographical\ZipCode as Zip ;
 
 class ZipCode extends Zip\ZipCode
 {
-    protected function validate($value) {
+    protected function validate($value)
+    {
         if (! is_int($value)) {
             throw Zip\InvalidZipCode::fromWrongType($value, gettype($value), 'integer');
         }
@@ -14,7 +15,6 @@ class ZipCode extends Zip\ZipCode
             return true;
         }
         throw Zip\InvalidZipCode::fromInvalidFormat($value);
-
     }
 
     public function value()

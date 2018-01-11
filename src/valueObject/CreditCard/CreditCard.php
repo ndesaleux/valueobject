@@ -4,9 +4,9 @@ namespace ndesaleux\valueObject\CreditCard;
 
 use ndesaleux\valueObject\Luhn\InvalidLuhn;
 use ndesaleux\valueObject\Luhn\Luhn;
-use ndesaleux\valueObject\valueObject;
+use ndesaleux\valueObject\ValueObject;
 
-class CreditCard extends valueObject
+class CreditCard extends ValueObject
 {
 
     public function __construct($value)

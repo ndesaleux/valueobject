@@ -2,9 +2,10 @@
 
 namespace ndesaleux\valueObject\IP;
 
-class IPv4
+use ndesaleux\valueObject\ValueObject;
+
+class IPv4 extends ValueObject
 {
-    private $value;
     private $intValue;
 
     private $privateRules = [
@@ -15,16 +16,16 @@ class IPv4
 
     public function __construct($value)
     {
+        $this->validate($value);
+        $this->value = $value;
+    }
+
+    public function validate($value)
+    {
         $this->intValue = ip2long($value);
         if (!$this->intValue) {
             throw InvalidIP::fromInvalidValue($value);
         }
-        $this->value = $value;
-    }
-
-    public function getValue()
-    {
-        return $this->value;
     }
 
     public function isPrivate()
